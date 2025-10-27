@@ -1,0 +1,23 @@
+
+
+//NOTE Task => you have to built add to cart  functionality using redux toolkit.
+
+const products = [ {
+  id : 1 ,
+  name : 'Samsung  QLED',
+  price : 80000,
+  image : 'https://placehold.co/200'
+},{
+  id : 2 ,
+  name : 'Lg Washing Machine',
+  price : 25000,
+image : 'https://placehold.co/200'
+},{id : 3 ,
+  name : 'Daikin Ac',
+  price : 50000,
+  image : 'https://placehold.co/200'
+}.{id : 4 ,
+  name : 'Apple Iphone',
+  price : 80000,
+  image : 'https://placehold.co/200'
+}]

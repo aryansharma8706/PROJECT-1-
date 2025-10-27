@@ -1,0 +1,37 @@
+import React from 'react';
+import { useEffect, useState } from 'react';
+function App() {
+  const [products, setProduct] = useState([]);
+  const [selectedId, setSelectedId] = useState(null);
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products')
+      .then((res) => res.json())
+      .then((data) => {
+        setProduct(data);
+      });
+  }, []);
+  const handleSelectChange = (e) => {
+    setSelectedId(e.target.value);
+  };
+
+  useEffect(() => {
+    fetch(`https://fakestoreapi.com/products/${selectedId}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  }, [selectedId]);
+
+  return (
+    <div>
+      <select onChange={handleSelectChange}>
+        {products.map((product) => (
+          <option value={product.id}>{product.title}</option>
+        ))}
+      </select>
+      <h1>{selectedId}</h1>
+    </div>
+  );
+}
+
+export default App;

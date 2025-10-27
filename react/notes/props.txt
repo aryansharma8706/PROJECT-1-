@@ -1,0 +1,47 @@
+// App.jsx
+
+function App() {
+  return (
+    <div>
+      {/* ✅ Passing props (title and color) to Button component */}
+      <Button title="Register" color="green" />
+      <Button title="Login" />
+      <Button title="Add To Cart" />
+    </div>
+  );
+}
+
+/*
+✅ What are props?
+
+"Props" (short for "properties") are special read-only inputs passed from a parent component to a child component in React.
+They allow data to flow **one way** (parent ➝ child) and help make components reusable and dynamic.
+
+Example usage:
+  <Button title="Click Me" color="blue" />
+
+In the Button component, you can receive props like this:
+  function Button({ title, color }) { ... }
+*/
+
+function Button({ title, color }) {
+  console.log(title, color); // Logs props values when component renders
+
+  return (
+    <button
+      style={{
+        backgroundColor: color || 'gray', // ✅ fallback if no color prop is passed
+        color: 'white',
+        padding: '10px 20px',
+        border: 'none',
+        margin: '5px',
+        borderRadius: '5px',
+        cursor: 'pointer',
+      }}
+    >
+      {title} {/* ✅ Using the "title" prop to display dynamic text */}
+    </button>
+  );
+}
+
+export default App;
