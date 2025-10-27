@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     trime: true,
   },
   email: { type: String, unique: true, required: true },
-  password: { type: String, maxlength: [6, 'Password is too short'] },
+  password: { type: String},
   isActive: { type: Boolean, default: true },
   role : {
     type : String ,
