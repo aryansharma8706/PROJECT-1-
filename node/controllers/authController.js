@@ -46,3 +46,25 @@ const passwordHash = await bcrypt.hash(password , 12);
     })
   }
 };
+
+exports.login  = async(req,res) => {
+  try {
+    const {email , password} = req.body ;
+    const userExist = await User.findOne({email}) ;
+    if(!userExist) {
+      return res.status(400).json({
+        message : 
+        "User does not exist , Please register and try again"
+      })
+    }
+
+    const isPasswordMatch = await bcrypt.compare(password , userExist.password)
+    if(!isPasswordMatch){
+      return res.status(400).json({
+        message : "Password donot match"
+      })
+    }
+  } catch (error) {
+    
+  }
+}
