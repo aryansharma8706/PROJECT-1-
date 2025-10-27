@@ -8,5 +8,4 @@ try {
     })
 }
 }
-
 module.exports = authenticateToken
